@@ -17,7 +17,7 @@ class Login extends Component {
     // api.post('user/register', {
     //   username: this.state.username.toLowerCase(),
     //   password: this.state.password,
-    //   image: []
+    //   image: ""
     // })
     .then(res => {
     window.location.href = "/"

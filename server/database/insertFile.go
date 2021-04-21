@@ -37,7 +37,7 @@ func InsertFile(data []byte, fileName string, User string) {
     }
 
     filter := bson.M{"username": bson.M{"$eq": User}}
-	update := bson.M{"$push": bson.M{"image": fileName}}
+	update := bson.M{"$set": bson.M{"image": fileName}}
 	result, err := collection.UpdateOne(
         context.Background(),
         filter,

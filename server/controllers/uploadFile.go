@@ -23,5 +23,5 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
         log.Fatal(err)
     }
 	// Inserts file to database
-	database.InsertFile(data, header.Filename, "benny")
+	database.InsertFile(data, header.Filename, Username)
 }

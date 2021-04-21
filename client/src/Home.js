@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import api from './api'
 
 export default class Home extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ export default class Home extends Component {
     uploadPicture = (e) => {
         this.setState({
             /* contains the preview, if you want to show the picture to the user
-               you can access it with this.state.currentPicture */
+               you can access it with this.state.picturePreview */
             picturePreview : URL.createObjectURL(e.target.files[0]),
             /* this contains the file we want to send */
             pictureAsFile : e.target.files[0]
@@ -43,6 +44,21 @@ export default class Home extends Component {
         console.log(err)
         })
     };
+
+    componentDidMount = () => {
+        api.get('file')
+        .then(res => {
+            console.log(res)
+            this.setState({
+                picturePreview : res.data,
+            })
+        })
+        .catch(err => {
+            console.log(err)
+            alert(err.response.data)
+        })
+    }
+
     render() {
         return (
             <div>

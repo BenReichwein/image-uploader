@@ -15,6 +15,6 @@ func Router() *mux.Router {
 	router.HandleFunc("/api/user/register", controllers.RegisterHandler).Methods("POST", "OPTIONS")
 	router.HandleFunc("/api/getToken", controllers.GetToken).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/file", controllers.UploadFile).Methods("POST", "OPTIONS")
-	router.HandleFunc("/api/file/{fileName}", controllers.DownloadFile).Methods("GET", "OPTIONS")
+	router.HandleFunc("/api/file", controllers.DownloadFile).Methods("GET", "OPTIONS")
 	return router
 }

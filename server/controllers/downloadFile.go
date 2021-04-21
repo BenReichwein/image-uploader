@@ -4,16 +4,12 @@ import (
 	"log"
 	"net/http"
 	"server/database"
-
-	"github.com/gorilla/mux"
 )
 
 // Download File
 func DownloadFile(w http.ResponseWriter, r *http.Request) {
-	// Get the params
-    params := mux.Vars(r)
-
-	fileName, err := database.ReadFile(params["fileName"])
+	
+	fileName, err := database.ReadFile(Username)
 	if err != nil {
         log.Fatal(err)
     }
