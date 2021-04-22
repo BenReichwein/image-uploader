@@ -37,18 +37,24 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="modal">
-        <div className="container">
-          <label>Username</label>
+      <div className="md:container md:mx-auto">
+        <div className="h-48 flex flex-wrap content-center">
+          <label className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-blue-600 bg-blue-200 uppercase last:mr-0 mr-1">
+            Username
+          </label>
           <input
+          className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full pr-10"
           name="username"
           placeholder="Enter Username"
           value={this.state.username}
           onChange={this.handleInputChange}
           required
           />
-          <label>Password</label>
+          <label className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-blue-600 bg-blue-200 uppercase last:mr-0 mr-1">
+            Password
+          </label>
           <input
+          className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full pr-10"
           type="password"
           name="password"
           placeholder="Enter Password"
@@ -56,11 +62,20 @@ class Login extends Component {
           onChange={this.handleInputChange}
           required
           />
-          <button className="system" onClick={this.onSubmit}>Login</button>
+          <button 
+          className="self-auto bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
+          onClick={this.onSubmit}>
+            Login
+          </button>
         </div>
         <div className="container">
-            <button className='forgotpass' onClick={()=> this.props.history.push('/forgot-password')}>Forgot Password?</button>
-            <span className="register">Don't have account? <button className="registerbtn" onClick={()=>this.props.history.push('/register')}>Register</button></span>
+            <span 
+            className="text-gray-600">
+              Don't have account? <button 
+            className="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
+            onClick={()=>window.location.href = "/reigster"}>
+              Register
+            </button></span>
         </div>
       </div>
     )
